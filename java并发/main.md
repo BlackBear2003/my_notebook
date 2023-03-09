@@ -180,3 +180,12 @@ But，遗憾的是，如果仅仅依靠这俩个关键字来保证有序性的�
 ### Happens-before 原则
 
 Happens-before 是 JMM 的灵魂，它是判断数据是否存在竞争，线程是否安全的非常有用的手段。
+
+Happens-before 直译为 “先行发生”，《JSR-133：Java Memory Model and Thread Specification》对 Happens-before 关系的定义如下：
+
+> 1）如果一个操作 Happens-before 另一个操作，那么第一个操作的执行结果将对第二个操作可见，而且第一个操作的执行顺序排在第二个操作之前。
+>
+> 2）两个操作之间存在 Happens-before 关系，并不意味着 Java 平台的具体实现必须要按照 Happens-before 关系指定的顺序来执行。如果重排序之后的执行结果，与按 Happens-before 关系来执行的结果一致，那么这种重排序并不非法（也就是说，JMM 允许这种重排序）
+
+
+
