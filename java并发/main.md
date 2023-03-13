@@ -8,6 +8,8 @@
 
 ![img](https://www.runoob.com/wp-content/uploads/2014/01/java-thread.jpg)
 
+![](/Users/weizhile/Documents/my_notebook/java并发/1640778014-cXclgm-image.png)
+
 ## 创建一个线程
 
 Java 提供了三种创建线程的方法：
@@ -112,6 +114,13 @@ FutureTask<Integer> task = new FutureTask<>(callable);
 // 创建线程对象
 Thread t3 = new Thread(task);
 ```
+
+当线程运行起来后，可以通过 FutureTask 的 get 方法获取任务运行结果：
+
+`Integer result = task.get();`
+不过，需要注意的是，get 方法会阻塞住当前调用这个方法的线程。比如说我们在主线程中调用了 get 方法去获取 t3 线程的任务运行结果，那么只有这个 call 方法成功返回了，主线程才能够继续往下执行。
+
+换句话说，如果 call 方法一直得不到结果，那么主线程也就一直无法向下运行。
 
 ## 启动线程
 
